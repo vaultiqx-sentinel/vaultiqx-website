@@ -1,4 +1,6 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { Sentinel } from './Sentinel';
 import './App.css';
 
 function PublicAccess() {
