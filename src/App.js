@@ -1,24 +1,24 @@
 import React from 'react';
 import './App.css';
 
-export default function Home() {
+function App() {
   return (
     <div className="App">
       {/* 🎙️ Public Capsule Demo Block */}
-      <section style={{ padding: "20px", borderBottom: "1px solid #ccc" }}>
+      <section>
         <h2>Try VaultiqX Public Mode</h2>
         <p>Simulate access for students, seniors, and children — no login required.</p>
         <button onClick={() => alert("Public Capsule Activated")}>Launch Demo</button>
       </section>
 
       {/* 📩 Appointment Request Block */}
-      <section style={{ padding: "20px", borderBottom: "1px solid #ccc" }}>
+      <section>
         <h2>Request a Tribute Call</h2>
-        <form>
-          <input type="text" placeholder="Your Name" required style={{ display: "block", marginBottom: "10px" }} />
-          <input type="email" placeholder="Email Address" required style={{ display: "block", marginBottom: "10px" }} />
-          <textarea placeholder="Reason for Request" required style={{ display: "block", marginBottom: "10px" }} />
-          <select style={{ display: "block", marginBottom: "10px" }}>
+        <form action="https://formspree.io/f/yourFormID" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Email Address" required />
+          <textarea name="message" placeholder="Reason for Request" required />
+          <select name="urgency">
             <option>Urgency Level</option>
             <option>Low</option>
             <option>Medium</option>
@@ -29,23 +29,17 @@ export default function Home() {
       </section>
 
       {/* 🔗 Cockpit Access Link */}
-      <section style={{ padding: "20px", borderBottom: "1px solid #ccc" }}>
+      <section>
         <h2>Founder Cockpit</h2>
         <button onClick={() => window.location.href = "/cockpit"}>Enter Cockpit</button>
       </section>
 
       {/* 💠 Tribute Watermark Overlay */}
-      <div style={{
-        position: "fixed",
-        bottom: "10px",
-        right: "10px",
-        opacity: 0.6,
-        fontSize: "0.9rem",
-        fontStyle: "italic",
-        color: "#888"
-      }}>
+      <div className="watermark">
         Sealed Memory with my Mother Challa Sunitha 💖
       </div>
     </div>
   );
 }
+
+export default App;
