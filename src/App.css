@@ -1,0 +1,25 @@
+.App {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.splash-screen h1 {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.splash-screen p {
+  font-size: 18px;
+  margin: 4px;
+}
+
+.caption {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
