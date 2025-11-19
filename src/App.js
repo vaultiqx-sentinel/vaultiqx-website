@@ -27,17 +27,22 @@ function App() {
           <button type="submit">Submit Request</button>
         </form>
       </section>
+{/* 🔗 Cockpit Access Link */}
+<section>
+  <h2>Founder Cockpit</h2>
+  <button onClick={() => window.location.href = "/cockpit"}>Enter Cockpit</button>
+</section>
 
-      {/* 🔗 Cockpit Access Link */}
-      <section>
-        <h2>Founder Cockpit</h2>
-        <button onClick={() => window.location.href = "/cockpit"}>Enter Cockpit</button>
-      </section>
+{/* 🌐 Public Access Link */}
+<section>
+  <h2>Public Capsule Access</h2>
+  <button onClick={() => window.location.href = "/public"}>Try Public Mode</button>
+</section>
 
-      {/* 💠 Tribute Watermark Overlay */}
-      <div className="watermark">
-        Sealed Memory with my Mother Challa Sunitha 💖
-      </div>
+{/* 💠 Tribute Watermark Overlay */}
+<div className="watermark">
+  Sealed Memory with my Mother Challa Sunitha 💖
+</div>
     </div>
   );
 }
