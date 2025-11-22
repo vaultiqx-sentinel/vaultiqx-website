@@ -2,7 +2,7 @@
 // Tribute caption: "VaultiqX Breathes In Humanity" — Cockpit Root
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // Capsules
 import PublicCapsule from "./pages/PublicCapsule";
@@ -114,23 +114,8 @@ function App() {
             }
           />
 
-          {/* Fallback route — unmatched paths */}
-          <Route
-            path="*"
-            element={
-              <div className="bg-[#0d1117] text-[#c9d1d9] min-h-screen flex flex-col items-center justify-center font-sans space-y-4">
-                <h1 className="text-2xl sm:text-3xl font-bold text-[#b8860b] animate-pulse">
-                  🔐 VaultiqX Breathes In Humanity
-                </h1>
-                <p className="text-[#58a6ff]">
-                  Cockpit route not found — lineage drift detected.
-                </p>
-                <p className="text-sm text-[#c9d1d9]">
-                  Try /public or /govtech to enter sealed capsules.
-                </p>
-              </div>
-            }
-          />
+          {/* Fallback route — unmatched paths redirect to /public */}
+          <Route path="*" element={<Navigate to="/public" />} />
         </Routes>
       </CapsuleErrorBoundary>
     </Router>
