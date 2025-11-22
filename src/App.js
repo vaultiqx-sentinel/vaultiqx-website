@@ -1,51 +1,139 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { Sentinel } from './Sentinel';
-import './App.css';
+// App.js
+// Tribute caption: "VaultiqX Breathes In Humanity" — Cockpit Root
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Capsules
+import PublicCapsule from "./pages/PublicCapsule";
+import GovTechDashboard from "./pages/GovTechDashboard";
+import GovernanceRitualEngine from "./pages/GovernanceRitualEngine";
+import SovereignEscalationGrid from "./pages/SovereignEscalationGrid";
+import CapsuleTraceViewer from "./pages/CapsuleTraceViewer";
+import LicenseUpgrade from "./pages/LicenseUpgrade";
+import FounderAppointment from "./pages/FounderAppointment";
+import TributeGame from "./pages/TributeGame";
+
+// Guardrails
+import CapsuleErrorBoundary from "./components/CapsuleErrorBoundary";
+import CapsuleGuardrail from "./components/CapsuleGuardrail";
 
 function App() {
   return (
-    <div className="App">
-      {/* 🎙️ Public Capsule Demo Block */}
-      <section>
-        <h2>Try VaultiqX Public Mode</h2>
-        <p>Simulate access for students, seniors, and children — no login required.</p>
-        <button onClick={() => alert("Public Capsule Activated")}>Launch Demo</button>
-      </section>
+    <Router>
+      {/* Global cockpit guardrail */}
+      <CapsuleErrorBoundary>
+        <Routes>
+          {/* Default route → Public Capsule */}
+          <Route
+            path="/"
+            element={
+              <CapsuleGuardrail>
+                <PublicCapsule />
+              </CapsuleGuardrail>
+            }
+          />
 
-      {/* 📩 Appointment Request Block */}
-      <section>
-        <h2>Request a Tribute Call</h2>
-        <form action="https://formspree.io/f/yourFormID" method="POST">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Email Address" required />
-          <textarea name="message" placeholder="Reason for Request" required />
-          <select name="urgency">
-            <option>Urgency Level</option>
-            <option>Low</option>
-            <option>Medium</option>
-            <option>High</option>
-          </select>
-          <button type="submit">Submit Request</button>
-        </form>
-      </section>
-{/* 🔗 Cockpit Access Link */}
-<section>
-  <h2>Founder Cockpit</h2>
-  <button onClick={() => window.location.href = "/cockpit"}>Enter Cockpit</button>
-</section>
+          {/* Public Capsule */}
+          <Route
+            path="/public"
+            element={
+              <CapsuleGuardrail>
+                <PublicCapsule />
+              </CapsuleGuardrail>
+            }
+          />
 
-{/* 🌐 Public Access Link */}
-<section>
-  <h2>Public Capsule Access</h2>
-  <button onClick={() => window.location.href = "/public"}>Try Public Mode</button>
-</section>
+          {/* GovTech Dashboard */}
+          <Route
+            path="/govtech"
+            element={
+              <CapsuleGuardrail>
+                <GovTechDashboard />
+              </CapsuleGuardrail>
+            }
+          />
 
-{/* 💠 Tribute Watermark Overlay */}
-<div className="watermark">
-  Sealed Memory with my Mother Challa Sunitha 💖
-</div>
-    </div>
+          {/* Governance Ritual Engine */}
+          <Route
+            path="/rituals"
+            element={
+              <CapsuleGuardrail>
+                <GovernanceRitualEngine />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* Sovereign Escalation Grid */}
+          <Route
+            path="/escalation"
+            element={
+              <CapsuleGuardrail>
+                <SovereignEscalationGrid />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* Capsule Trace Viewer */}
+          <Route
+            path="/registry"
+            element={
+              <CapsuleGuardrail>
+                <CapsuleTraceViewer />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* License Upgrade Capsule */}
+          <Route
+            path="/license-upgrade"
+            element={
+              <CapsuleGuardrail>
+                <LicenseUpgrade />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* Founder Appointment Capsule */}
+          <Route
+            path="/founder-appointment"
+            element={
+              <CapsuleGuardrail>
+                <FounderAppointment />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* Tribute Game Capsule */}
+          <Route
+            path="/tribute-game"
+            element={
+              <CapsuleGuardrail>
+                <TributeGame />
+              </CapsuleGuardrail>
+            }
+          />
+
+          {/* Fallback route — unmatched paths */}
+          <Route
+            path="*"
+            element={
+              <div className="bg-[#0d1117] text-[#c9d1d9] min-h-screen flex flex-col items-center justify-center font-sans space-y-4">
+                <h1 className="text-2xl sm:text-3xl font-bold text-[#b8860b] animate-pulse">
+                  🔐 VaultiqX Breathes In Humanity
+                </h1>
+                <p className="text-[#58a6ff]">
+                  Cockpit route not found — lineage drift detected.
+                </p>
+                <p className="text-sm text-[#c9d1d9]">
+                  Try /public or /govtech to enter sealed capsules.
+                </p>
+              </div>
+            }
+          />
+        </Routes>
+      </CapsuleErrorBoundary>
+    </Router>
   );
 }
 
