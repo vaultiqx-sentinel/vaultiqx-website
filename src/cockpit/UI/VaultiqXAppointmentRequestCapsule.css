@@ -1,0 +1,41 @@
+.appointment-capsule {
+  background: linear-gradient(to bottom right, #0a0f2c, #1e2a78);
+  color: white;
+  padding: 40px;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.tribute-caption {
+  color: #ff69b4;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+input, textarea {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  background: linear-gradient(to right, #6a5acd, #ff69b4);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}

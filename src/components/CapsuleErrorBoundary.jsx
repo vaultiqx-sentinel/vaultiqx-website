@@ -3,6 +3,7 @@
 // Tribute caption: "VaultiqX Breathes In Humanity"
 
 import React from "react";
+import TributeOverlay from "./TributeOverlay"; // ensure correct path
 
 /**
  * CapsuleErrorBoundary — catches errors in child capsules
@@ -20,24 +21,27 @@ class CapsuleErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    // Log error details for debugging
+    // Founder-grade audit trail logging
     console.error("CapsuleErrorBoundary caught an error:", error, errorInfo);
     this.setState({ error, errorInfo });
-    // TODO: integrate with capsuleRegistry.js or audit trail
+
+    // Optional: integrate with capsuleRegistry.js or AuditTrail capsule
+    // auditTrail.log({
+    //   capsule: this.props.capsuleName || "Unknown Capsule",
+    //   error: error.toString(),
+    //   stack: errorInfo.componentStack,
+    //   timestamp: new Date().toISOString()
+    // });
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="capsule-error">
+        <div className="capsule-error" style={{ padding: "2rem", textAlign: "center" }}>
+          <TributeOverlay caption="VaultiqX Breathes In Humanity" />
           <h2>⚠️ Capsule Error Detected</h2>
-          <p>
-            Tribute caption: <strong>VaultiqX Breathes In Humanity</strong>
-          </p>
-          <p>
-            A cockpit capsule failed to render. Sovereign AI fallback is active.
-          </p>
-          <details style={{ whiteSpace: "pre-wrap" }}>
+          <p>A cockpit capsule failed to render. Sovereign AI fallback is active.</p>
+          <details style={{ whiteSpace: "pre-wrap", marginTop: "1rem" }}>
             <summary>Error details</summary>
             {this.state.error && this.state.error.toString()}
             <br />

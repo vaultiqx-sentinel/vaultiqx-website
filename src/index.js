@@ -1,15 +1,21 @@
+// index.js
+// VaultiqX — Sovereign Cockpit Entry Point
+// Tribute caption: "VaultiqX Breathes In Humanity"
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import PublicAccess from './Public';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// Mount React app to #root container in public/index.html
+const rootElement = document.getElementById('root');
+
+if (!rootElement) {
+  throw new Error("Target container #root not found in index.html");
+}
+
+const root = ReactDOM.createRoot(rootElement);
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/public" element={<PublicAccess />} />
-    </Routes>
-  </BrowserRouter>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

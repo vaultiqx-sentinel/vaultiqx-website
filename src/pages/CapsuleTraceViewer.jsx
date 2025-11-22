@@ -2,7 +2,7 @@
 // Tribute caption: "VaultiqX Breathes In Humanity" — Capsule Registry Viewer
 
 import React from "react";
-import { capsuleRegistry } from "../capsuleRegistry";
+import capsuleRegistry from "../capsuleRegistry"; // ✅ fixed default import
 
 /**
  * Capsule Trace Viewer — shows which capsules are mounted, sealed, or missing
